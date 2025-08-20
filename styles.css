@@ -1,8 +1,41 @@
-/*
+/* Base clickable dice styling */
+.clickable-dice {
+    color: var(--text-accent);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 2px 6px;
+    margin: 0 2px;
+    border-radius: 6px;
+    background-color: var(--background-secondary);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+/* Hover effect */
+.clickable-dice:hover {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+    text-decoration: none;
+    transform: scale(1.05);
+}
 
-If your plugin does not need CSS, delete this file.
+/* In editor (CodeMirror) make it distinct */
+.cm-content .clickable-dice {
+    border-bottom: 1px dotted var(--text-accent);
+}
+/* Critical success = green */
+.dice-critical-success {
+    background-color: #1a4d1a !important;
+    color: #b6ffb6 !important;
+    border: 2px solid #2aff2a !important;
+    font-weight: bold;
+}
 
-*/
+/* Critical fail = red */
+.dice-critical-fail {
+    background-color: #4d1a1a !important;
+    color: #ffb6b6 !important;
+    border: 2px solid #ff2a2a !important;
+    font-weight: bold;
+}
+

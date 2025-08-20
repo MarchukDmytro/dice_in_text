@@ -1,11 +1,11 @@
 {
 	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"name": "Dice in text",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"description": "Roll the dice if clicked on format like 3d10+5 3d10 or 3к10+5 3к10",
+	"author": "Dmytro Marchuk",
+	"authorUrl": "https://github.com/MarchukDmytro",
+	"fundingUrl": "",
 	"isDesktopOnly": false
 }
