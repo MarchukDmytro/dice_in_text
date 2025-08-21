@@ -3,7 +3,7 @@
 	"name": "Dice in text",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Roll the dice if clicked on format like 3d10+5 or 3к10+5 in text",
+	"description": "Roll the dice if clicked on format like 3d10+5 or 3к10+5 in live preview or reader mode",
 	"author": "Dmytro Marchuk",
 	"authorUrl": "https://github.com/MarchukDmytro",
 	"fundingUrl": "",
