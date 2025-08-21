@@ -37,10 +37,10 @@ export default class DicePlugin extends Plugin {
 			}
 		});
 	}
-		 
-	rollDice(formula: string): string {
+
+	rollDice(formula: string): { text: string; cssClass?: string } {
 		const match = formula.match(/(\d+)[dк](\d+)([+-]\d+)?/i);
-		if (!match) return "Invalid dice formula";
+		if (!match) return { text: "Invalid dice formula" };
 
 		const num = parseInt(match[1], 10);
 		const sides = parseInt(match[2], 10);
@@ -64,15 +64,16 @@ export default class DicePlugin extends Plugin {
 		}
 		noticeText += ` = ${finalSum}`;
 
-				// Detect critical success/failure
+		// Detect critical success/failure (only if it's 1d20 ± modifier)
 		let cssClass: string | undefined;
-		if (formula.toLowerCase() === "1d20") {
+		if (num === 1 && sides === 20) {
 			if (rolls[0] === 20) cssClass = "dice-critical-success";
 			if (rolls[0] === 1) cssClass = "dice-critical-fail";
 		}
 
 		return { text: noticeText, cssClass };
 	}
+
 
 	createLivePreviewPlugin() {
 		const diceRegex = /(\d+[dк]\d+([\+\-]\d+)?)/ig;
