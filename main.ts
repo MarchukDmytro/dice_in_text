@@ -16,9 +16,26 @@ export default class DicePlugin extends Plugin {
 		// Reading view (preview)
 		this.registerMarkdownPostProcessor((el) => {
 			const diceRegex = /(\d+[dк]\d+([\+\-]\d+)?)/ig;
+
 			el.querySelectorAll("p, li").forEach((block) => {
-				block.innerHTML = block.innerHTML.replace(diceRegex, (match) => {
-					return `<span class="clickable-dice" data-dice-formula="${match}">${match}</span>`;
+				const text = block.textContent ?? "";
+				const parts = text.split(diceRegex);
+
+				// Clear the block
+				block.empty();
+
+				parts.forEach((part) => {
+					if (part.match(diceRegex)) {
+						// Safe Obsidian helper
+						const span = block.createSpan({
+							text: part,
+							cls: "clickable-dice",
+						});
+						span.setAttr("data-dice-formula", part);
+					} else {
+						// Normal text
+						block.appendText(part);
+					}
 				});
 			});
 		});
