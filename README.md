@@ -9,3 +9,4 @@ This works in reader mode as well as in live preview. After text in the correct 
 
 
 Also, if on 1d20+n rolled 1 or 20, the window will be red or green for crits. 
+<img width="1832" height="719" alt="image" src="https://github.com/user-attachments/assets/c9865642-619e-4388-b5c1-e6aff5aa0244" />
