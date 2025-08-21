@@ -2,6 +2,13 @@ import { App, Plugin, Notice } from "obsidian";
 import { Decoration, EditorView, ViewPlugin, ViewUpdate } from "@codemirror/view";
 import { RangeSetBuilder } from "@codemirror/state";
 
+
+function randomInt(max: number): number {
+	const array = new Uint32Array(1);
+	crypto.getRandomValues(array);
+	return array[0] % max; // uniform enough
+}
+
 export default class DicePlugin extends Plugin {
 	onload() {
 		console.log("Loading Dice Plugin");
@@ -38,6 +45,7 @@ export default class DicePlugin extends Plugin {
 		});
 	}
 
+
 	rollDice(formula: string): { text: string; cssClass?: string } {
 		const match = formula.match(/(\d+)[dк](\d+)([+-]\d+)?/i);
 		if (!match) return { text: "Invalid dice formula" };
@@ -49,7 +57,7 @@ export default class DicePlugin extends Plugin {
 		let rolls: number[] = [];
 		let baseSum = 0;
 		for (let i = 0; i < num; i++) {
-			const roll = Math.floor(Math.random() * sides) + 1;
+			const roll = randomInt(sides) + 1;
 			rolls.push(roll);
 			baseSum += roll;
 		}
